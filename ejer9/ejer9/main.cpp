@@ -12,37 +12,37 @@ no se ingresen números (lo primero que se ingresa es 0).
 
 
 int main() {
-    int num, ultimo_num = -1, anterior = -1;
+    int num, anterior = -1;
+    bool orden_ascendente = true, consecutivo = true;
 
-    cout << "Ingrese una serie de numeros enteros positivos (0 para terminar):" << endl;
+    cout << "Ingrese una serie de números enteros positivos (0 para terminar): ";
 
-    do {
-        cout << "Ingrese un numero entero positivo (0 para terminar): ";
-        cin >> num;
+    cin >> num;
 
-        if (num != 0) {
-            if (ultimo_num == -1) {
-                ultimo_num = num;
-            } else {
-                if (num < anterior || num == ultimo_num) {
-                    cout << "Los numeros ingresados no estan en orden ascendente." << endl;
-                    return 0;
-                }
-                anterior = ultimo_num;
-                ultimo_num = num;
+    while (num != 0) {
+        if (anterior != -1) {
+            if (num <= anterior) {
+                orden_ascendente = false;
+            }
+            if (num != anterior + 1) {
+                consecutivo = false;
             }
         }
-    } while (num != 0);
+        anterior = num;
 
-    if (ultimo_num == -1) {
-        cout << "No se ingresaron numeros." << endl;
-    } else {
-        cout << "Los numeros ingresados estan en orden ascendente.";
-        if (anterior == ultimo_num - 1) {
+        cout << "Ingrese otro número (0 para terminar): ";
+        cin >> num;
+    }
+
+    if (orden_ascendente) {
+        cout << "Los números ingresados están en orden ascendente.";
+        if (consecutivo) {
             cout << " Son consecutivos." << endl;
         } else {
             cout << " No son consecutivos." << endl;
         }
+    } else {
+        cout << "Los números ingresados no están en orden ascendente." << endl;
     }
 
     return 0;

@@ -9,7 +9,7 @@ Considerar la posibilidad de que no se ingresen números (lo primero que se ingre
 
 
 int main() {
-    int num, mayor, menor;
+    int num, mayor, menor, promedio, suma=0, contador=0;
 
     cout << "Ingrese un numero entero (al poner 0 termina la ejecucion): ";
     cin >> num;
@@ -18,6 +18,9 @@ int main() {
     menor = num;
 
     while (num != 0) {
+            suma+=num;
+            contador++;
+
         cout << "Ingrese un numero entero (al poner 0 termina la ejecucion): ";
         cin >> num;
 
@@ -28,13 +31,18 @@ int main() {
             if (menor > num) {
                 menor = num;
             }
+
         } else {
             break;
         }
     }
 
+
+    promedio= suma/contador;
+
     cout << "El numero mayor es " << mayor << endl;
     cout << "El numero menor es " << menor << endl;
+    cout << "El promedio de los numeros ingresados es " << promedio << endl;
 
     return 0;
 }

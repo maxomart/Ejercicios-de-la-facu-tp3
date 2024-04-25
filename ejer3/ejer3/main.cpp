@@ -17,18 +17,12 @@ int main()
 
 
     while (num!=0){
-
         cout<< "Inrgese un numero real (la operacin termina al apretar 0): ";
-        cin>> num;
+        cin>>num;
 
-        if (num!=0){
-            if (num>=0){
-                enteros= num;
-            }
-        }else{
-        break;}
-
-
+        if(num>0){
+            enteros++;
+        }
     }
 
 

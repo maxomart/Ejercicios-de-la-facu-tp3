@@ -17,7 +17,7 @@ int main()
     cout<< "Ingrese un numero entero (aprete 0 para terminar): ";
     cin>> num;
 
-    mayor= 0;
+    mayor= num;
     mayor2= 0;
 
     while (num!=0){
